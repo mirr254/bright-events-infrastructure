@@ -1,0 +1,21 @@
+# Byte-compiled / optimized 
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Distribution / packaging
+bin/
+build/
+dist/
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+#enviroment variables
+.env
