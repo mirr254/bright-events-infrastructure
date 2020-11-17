@@ -37,7 +37,7 @@ RUN chmod +x boot.sh
 
 
 # env vars
-ENV DATABASE_URL='postgresql://postgres:postgres@localhost:5432/test_db_brighter_events' \
+ENV DATABASE_URL='postgresql://postgres:postgres@localhost:5432/bright_events' \
     SECRET_KEY='change-this' \
     SECURITY_PASSWORD_SALT='change-this' \
     SECURITY_PASSWORD_RESET_SALT='change-salt'
@@ -54,7 +54,8 @@ ENV MAIL_SERVER='smtp.gmail.com' \
     MAIL_USE_SSL=True
 
 
-ENV FLASK_APP=run.py
+ENV FLASK_APP=run.py \
+    APP_SETTINGS=development
 
 RUN chown -R brightevents:brightevents ./
 USER brightevents
