@@ -34,8 +34,8 @@ spec:
           {{- range .paths }}
           - path: {{ . }}
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
+              serviceName: api-chart
+              servicePort: 5000
           {{- end }}
     {{- end }}
   {{- end }}

@@ -1,7 +1,12 @@
 # The main(parent) values file.
 
 global:
-  key: value
+  postgres:
+    enabled: true
+  api-chart: 
+    enabled: true
+  ingress:
+    enabled: true
 
 api-chart:
   image:
@@ -15,7 +20,7 @@ api-chart:
     appSettings: development
   
   secret:
-    databaseURL: 'postgresql://postgres:postgres@localhost:5432/bright_events'
+    databaseURL: postgres:5432/bright_events
     secretKey: 'change-this'
     securityPasswordSalt: 'change-this' 
     securityPasswordResetSalt: 'change-salt'

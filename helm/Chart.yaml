@@ -9,3 +9,12 @@ appVersion: 1.16.0
 maintainers:
   - name: M@os
 email: kungusamuel90@gmail.com
+dependencies:
+  - name: api-chart
+    condition: global.api-chart.enabled
+  
+  - name: ingress
+    condition: global.ingress.enabled
+
+  - name: postgres
+    condition: global.postgres.enabled
