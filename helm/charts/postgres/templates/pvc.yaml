@@ -6,17 +6,17 @@ metadata:
     {{- include "postgres.labels" . | nindent 4 }}
   annotations:
     storageclass.beta.kubernetes.io/is-default-class: "false"
-provisioner: {{ .Values.provisioner }}
+provisioner: {{ .Values.volume.provisioner }}
 parameters:
-  {{- if eq .Values.global.provisioner "kubernetes.io/aws-ebs" }}
+  {{- if eq .Values.volume.provisioner "kubernetes.io/aws-ebs" }}
   type: gp2
-  fsType: {{ .Values.global.fsType }}
-  {{- else if eq .Values.global.provisioner "kubernetes.io/gce-pd" }}
-  type: {{ .Values.global.gcePdStorageType }}
+  fsType: {{ .Values.volume.fsType }}
+  {{- else if eq .Values.volume.provisioner "kubernetes.io/gce-pd" }}
+  type: {{ .Values.volume.gcePdStorageType }}
   #TODO: add minikube or microk8s host provisioner
   {{- end }}
 allowVolumeExpansion: true
 volumeBindingMode: WaitForFirstConsumer
-reclaimPolicy: {{ .Values.global.reclaimPolicy }}
+reclaimPolicy: {{ .Values.volume.reclaimPolicy }}
 mountOptions:
   - debug

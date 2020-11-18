@@ -13,7 +13,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-provisioner: 
+volume:
+  reclaimPolicy: Retain
+  provisioner: microk8s.io/hostpath # kubernetes.io/aws-ebs kubernetes.io/aws-ebs
+  fsType: ext4
+  gcePdStorageType: pd-standard
 
 serviceAccount:
   # Specifies whether a service account should be created
