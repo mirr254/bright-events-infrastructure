@@ -1,0 +1,31 @@
+# The main(parent) values file.
+
+global:
+  key: value
+
+api-chart:
+  image:
+    tag: v0.1
+
+  configMap:
+    mailServer: smtp.gmail.com
+    mailPort: 465
+    mailUseTLS: false
+    mailUseSSL: true
+    appSettings: development
+  
+  secret:
+    databaseURL: 'postgresql://postgres:postgres@localhost:5432/bright_events'
+    secretKey: 'change-this'
+    securityPasswordSalt: 'change-this' 
+    securityPasswordResetSalt: 'change-salt'
+    appMailUsername: 'mail-username'
+    appMailPassword: 'mail-passwrd'
+    mailDefaultSender: 'sammysteppa90@gmail.com'
+  
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 15
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80

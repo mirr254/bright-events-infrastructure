@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "api-chart.fullname" . }}
+  labels:
+    {{- include "api-chart.labels" . | nident 4 }}
+data:
+  MAIL_SERVER: {{ .Values.configMap.mailServer }}
+  MAIL_PORT: {{ .Values.configMap.mailPort }}
+  MAIL_USE_TLS: {{ .Values.configMap.mailUseTLS }}
+  MAIL_USE_SSL: {{ .Values.configMap.mailUseSSL }}
+  APP_SETTINGS: {{ .Values.configMap.appSettings }}
