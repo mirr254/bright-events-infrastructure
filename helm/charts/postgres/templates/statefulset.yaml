@@ -35,16 +35,18 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 5432
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command: 
+              - CMD_SHELL
+              - pg_isready -U postgres
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+              - CMD_SHELL
+              - pg_isready -U postgres
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

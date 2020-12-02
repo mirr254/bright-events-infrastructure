@@ -11,29 +11,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
      libc-dev \
      && rm -rf /var/lib/apt/lists/*
 
-ENV BRIGHT_EVENTS_BRANCH='development'
+ARG BRIGHT_EVENTS_BRANCH='development'
 
 RUN git clone --branch ${BRIGHT_EVENTS_BRANCH} https://github.com/mirr254/Bright-Events.git /tmp/
 
 RUN cp /tmp/requirements.txt requirements.txt 
 RUN python -m venv venv \
     && venv/bin/python -m pip install --upgrade pip
-RUN venv/bin/pip install -r requirements.txt
-RUN venv/bin/pip install gunicorn
 
-RUN cp -r /tmp/app app
-RUN cp -r /tmp/migrations migrations
-RUN cp -r /tmp/instance instance
-RUN cp /tmp/manage.py /tmp/run.py ./ 
+RUN venv/bin/pip install -r requirements.txt \
+    && venv/bin/pip install gunicorn
+
+RUN cp -r /tmp/app app \
+    && cp -r /tmp/migrations migrations \
+    && cp -r /tmp/instance instance \
+    && cp /tmp/manage.py /tmp/run.py ./ 
 
 #cleanup
 RUN rm -rf /tmp/tests /tmp/Designs 
 
 COPY /scripts/boot.sh ./
 RUN chmod +x boot.sh 
-
-
-#install requirements
 
 
 # env vars

@@ -20,17 +20,27 @@ api-chart:
     appSettings: development
   
   secret:
-    databaseURL: postgres:5432/bright_events
+    databaseURL: postgres:5432/postgres
     secretKey: 'change-this'
     securityPasswordSalt: 'change-this' 
     securityPasswordResetSalt: 'change-salt'
-    appMailUsername: 'mail-username'
-    appMailPassword: 'mail-passwrd'
+    appMailUsername: 'sammysteppa90@gmail.com'
+    appMailPassword: 'ladhzbiimopwchta'
     mailDefaultSender: 'sammysteppa90@gmail.com'
   
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 15
+    maxReplicas: 3
     targetCPUUtilizationPercentage: 80
     # targetMemoryUtilizationPercentage: 80
+
+postgres:
+  nameOverride: "postgres"
+  fullnameOverride: "postgres"
+
+  volume:
+    reclaimPolicy: Retain
+    provisioner: microk8s.io/hostpath # kubernetes.io/aws-ebs kubernetes.io/aws-ebs
+    fsType: ext4
+    gcePdStorageType: pd-standard
