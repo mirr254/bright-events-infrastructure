@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Statefulset
+kind: StatefulSet
 metadata:
   name: {{ include "postgres.fullname" . }}
   labels:
@@ -8,6 +8,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  serviceName: {{ include "postgres.name" . }}
   selector:
     matchLabels:
       {{- include "postgres.selectorLabels" . | nindent 6 }}
