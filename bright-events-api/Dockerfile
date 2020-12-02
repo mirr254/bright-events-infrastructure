@@ -33,9 +33,12 @@ RUN rm -rf /tmp/tests /tmp/Designs
 COPY /scripts/boot.sh ./
 RUN chmod +x boot.sh 
 
-
 # env vars
-ENV DATABASE_URL='postgresql://postgres:postgres@localhost:5432/bright_events' \
+ENV DB_USER='postgres' \
+    DB_PASS='postgres' \
+    DB_HOST='localhost' \
+    DB_PORT=5432 \
+    DB_NAME='postgres' \
     SECRET_KEY='change-this' \
     SECURITY_PASSWORD_SALT='change-this' \
     SECURITY_PASSWORD_RESET_SALT='change-salt'

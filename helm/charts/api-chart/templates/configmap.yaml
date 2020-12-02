@@ -10,3 +10,4 @@ data:
   MAIL_USE_TLS: {{ .Values.configMap.mailUseTLS | quote }}
   MAIL_USE_SSL: {{ .Values.configMap.mailUseSSL | quote }}
   APP_SETTINGS: {{ .Values.configMap.appSettings | quote }}
+  

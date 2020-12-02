@@ -10,7 +10,7 @@ global:
 
 api-chart:
   image:
-    tag: v0.1
+    tag: 1.0.2
 
   configMap:
     mailServer: smtp.gmail.com
@@ -39,8 +39,17 @@ postgres:
   nameOverride: "postgres"
   fullnameOverride: "postgres"
 
+  image:
+    repository: postgres
+    tag: 9.6
+
   volume:
     reclaimPolicy: Retain
-    provisioner: microk8s.io/hostpath # kubernetes.io/aws-ebs kubernetes.io/aws-ebs
+    provisioner: microk8s.io/hostpath # kubernetes.io/aws-ebs 
     fsType: ext4
     gcePdStorageType: pd-standard
+
+secret: 
+  dbPass: postgres
+  dbUser: postgres
+  dbName: postgres
