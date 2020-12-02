@@ -19,3 +19,8 @@ coverage.xml
 
 #enviroment variables
 *.env
+
+#terraform
+*.tfstate
+*.tfstate*
+*.terraform/
