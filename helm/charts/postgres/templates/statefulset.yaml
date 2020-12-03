@@ -44,12 +44,10 @@ spec:
           livenessProbe:
             exec:
               command: 
-              - CMD_SHELL
               - pg_isready -U postgres
           readinessProbe:
             exec:
               command:
-              - CMD_SHELL
               - pg_isready -U postgres
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

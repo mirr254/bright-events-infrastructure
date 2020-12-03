@@ -25,9 +25,9 @@ api-chart:
     mailUseTLS: false
     mailUseSSL: true
     appSettings: development
+    dbPort: 5432
   
   secret:
-    databaseURL: postgres:5432/postgres
     secretKey: 'change-this'
     securityPasswordSalt: 'change-this' 
     securityPasswordResetSalt: 'change-salt'
