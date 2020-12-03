@@ -18,6 +18,7 @@ global:
 api-chart:
   image:
     tag: 1.0.2
+    pullPolicy: Always
 
   configMap:
     mailServer: smtp.gmail.com
@@ -31,9 +32,9 @@ api-chart:
     secretKey: 'change-this'
     securityPasswordSalt: 'change-this' 
     securityPasswordResetSalt: 'change-salt'
-    appMailUsername: 'sammysteppa90@gmail.com'
-    appMailPassword: 'ladhzbiimopwchta'
-    mailDefaultSender: 'sammysteppa90@gmail.com'
+    appMailUsername: your-email
+    appMailPassword: app-pass
+    mailDefaultSender: your-email
   
   autoscaling:
     enabled: false

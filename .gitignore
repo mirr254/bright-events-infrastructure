@@ -24,3 +24,5 @@ coverage.xml
 *.tfstate
 *.tfstate*
 *.terraform/
+
+values-copy.yaml
