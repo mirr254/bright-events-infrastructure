@@ -40,15 +40,16 @@ service:
   type: ClusterIP
   port: 5000
 
-configMap:
+configmap:
   mailServer: smtp.gmail.com
   mailPort: 465
   mailUseTLS: false
   mailUseSSL: true
   appSettings: development
+  dbPort: 5432
 
 secret:
-  databaseURL: 'postgresql://postgres:postgres@localhost:5432/bright_events'
+  dbHost: postgres
   secretKey: 'change-this'
   securityPasswordSalt: 'change-this' 
   securityPasswordResetSalt: 'change-salt'

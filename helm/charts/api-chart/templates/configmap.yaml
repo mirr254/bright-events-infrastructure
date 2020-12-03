@@ -5,9 +5,10 @@ metadata:
   labels:
     {{- include "api-chart.labels" . | nindent 4 }}
 data:
-  MAIL_SERVER: {{ .Values.configMap.mailServer | quote }}
-  MAIL_PORT: {{ .Values.configMap.mailPort | quote }}
-  MAIL_USE_TLS: {{ .Values.configMap.mailUseTLS | quote }}
-  MAIL_USE_SSL: {{ .Values.configMap.mailUseSSL | quote }}
-  APP_SETTINGS: {{ .Values.configMap.appSettings | quote }}
+  MAIL_SERVER: {{ .Values.configmap.mailServer | quote }}
+  MAIL_PORT: {{ .Values.configmap.mailPort | quote }}
+  MAIL_USE_TLS: {{ .Values.configmap.mailUseTLS | quote }}
+  MAIL_USE_SSL: {{ .Values.configmap.mailUseSSL | quote }}
+  APP_SETTINGS: {{ .Values.configmap.appSettings | quote }}
+  DB_PORT: {{ .Values.configmap.dbPort | quote }}
   

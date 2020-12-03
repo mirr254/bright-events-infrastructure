@@ -1,12 +1,19 @@
 # The main(parent) values file.
 
 global:
+  #enable or disable services
   postgres:
     enabled: true
   api-chart: 
     enabled: true
   ingress:
     enabled: true
+
+  # define common env vars
+  secret: 
+    dbPass: postgres
+    dbUser: postgres
+    dbName: postgres
 
 api-chart:
   image:
@@ -48,8 +55,3 @@ postgres:
     provisioner: microk8s.io/hostpath # kubernetes.io/aws-ebs 
     fsType: ext4
     gcePdStorageType: pd-standard
-
-secret: 
-  dbPass: postgres
-  dbUser: postgres
-  dbName: postgres
